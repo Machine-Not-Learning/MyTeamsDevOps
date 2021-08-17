@@ -13,7 +13,7 @@ services:
       - 5432:5432
     
   userauth:
-    image: userauth:0.0.1-SNAPSHOT 
+    image: machinenotlearning/userauth:latest
     environment: 
       DATASOURCE_URL: jdbc:postgresql://pgsql:5432/${PG_NAME}
       DATASOURCE_USERNAME: postgres
