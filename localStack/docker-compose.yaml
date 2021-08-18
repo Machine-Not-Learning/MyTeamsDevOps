@@ -9,3 +9,16 @@ services:
     environment:
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_DB: ${PG_NAME}
+    ports:
+      - 5432:5432
+    
+  userauth:
+    image: machinenotlearning/userauth:latest
+    environment: 
+      DATASOURCE_URL: jdbc:postgresql://pgsql:5432/${PG_NAME}
+      DATASOURCE_USERNAME: postgres
+      DATASOURCE_PASSWORD: ${PG_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      SPRING_PROFILES_ACTIVE: local
+    ports:
+      - 8180:8080
