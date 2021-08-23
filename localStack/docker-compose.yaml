@@ -22,3 +22,8 @@ services:
       SPRING_PROFILES_ACTIVE: local
     ports:
       - 8180:8080
+
+  redis: 
+    image: redis
+    ports:
+      - 6379:6379
